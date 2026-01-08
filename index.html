@@ -2,19 +2,230 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Content Template</title>
+
+  <!-- ===== Basic SEO ===== -->
+  <meta name="description" content="Reusable static HTML template for text and images">
+  <meta name="author" content="">
+
+  <!-- ===== Styles ===== -->
   <style>
-    body {
+    :root {
+      --bg-color: #fafafa;
+      --text-color: #222;
+      --muted-color: #666;
+      --accent-color: #2a7ae2;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      height: 100vh;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Layout ===== */
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--muted-color);
+      max-width: 700px;
+    }
+
+    nav {
+      margin-top: 1rem;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, sans-serif;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    section {
+      scroll-margin-top: 2rem;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    section p {
+      max-width: 800px;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== Image Blocks ===== */
+    .image-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .image-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+    }
+
+    .image-card figcaption {
+      font-size: 0.85rem;
+      color: var(--muted-color);
+      margin-top: 0.4rem;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #ddd;
+      font-size: 0.9rem;
+      color: var(--muted-color);
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 900px) {
+      main {
+        grid-template-columns: 3fr 1fr;
+      }
+
+      aside {
+        border-left: 1px solid #ddd;
+        padding-left: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  hello
+
+  <div class="page">
+
+    <!-- ===== Header ===== -->
+    <header>
+      <h1>Project Title</h1>
+      <p>
+        Short description or subtitle. This area is good for context, purpose, or a brief intro.
+      </p>
+
+      <nav>
+        <a href="#section-1">Section One</a>
+        <a href="#section-2">Section Two</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+
+      <!-- ===== Primary Content ===== -->
+      <div>
+
+        <section id="section-1">
+          <h2>Section One</h2>
+          <p>
+            Replace this paragraph with your own text. This template is designed for clean reading
+            and easy future expansion.
+          </p>
+          <p>
+            You can add as many paragraphs as you like inside each section.
+          </p>
+        </section>
+
+        <section id="section-2">
+          <h2>Section Two</h2>
+          <p>
+            This section can hold longer content, explanations, or documentation style text.
+          </p>
+        </section>
+
+        <section id="gallery">
+          <h2>Image Gallery</h2>
+          <p>
+            Images are loaded from a local folder, for example <code>images/</code>.
+          </p>
+
+          <div class="image-row">
+            <figure class="image-card">
+              <img src="images/example-1.jpg" alt="Example image 1">
+              <figcaption>Caption for image one</figcaption>
+            </figure>
+
+            <figure class="image-card">
+              <img src="images/example-2.jpg" alt="Example image 2">
+              <figcaption>Caption for image two</figcaption>
+            </figure>
+
+            <figure class="image-card">
+              <img src="images/example-3.jpg" alt="Example image 3">
+              <figcaption>Caption for image three</figcaption>
+            </figure>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ===== Sidebar ===== -->
+      <aside>
+        <section>
+          <h2>Sidebar</h2>
+          <p>
+            Optional area for notes, metadata, links, or short summaries.
+          </p>
+        </section>
+      </aside>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      <p>
+        © 2026 Your Name. Static HTML template.
+      </p>
+    </footer>
+
+  </div>
+
 </body>
 </html>
